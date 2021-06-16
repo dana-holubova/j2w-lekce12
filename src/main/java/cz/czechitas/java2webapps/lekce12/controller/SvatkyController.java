@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -25,13 +26,36 @@ public class SvatkyController {
 
   @GetMapping(path = "/")
   public ModelAndView today() {
-    return new ModelAndView("today")
-            .addObject("svatek", svatkyService.spojit(svatkyService.jmeniny(svatkyService.today())));
+    return html(svatkyService.today(), "Dnes");
   }
 
   @GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   public List<String> todayJson() {
-    return svatkyService.jmeniny(svatkyService.today());
+    return json(svatkyService.today());
+  }
+
+  @GetMapping(path = "/tomorrow")
+  public ModelAndView tomorrow() {
+    return html(svatkyService.tomorrow(), "Zítra");
+  }
+
+  @GetMapping(path = "/tomorrow", produces = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public List<String> tomorrowJson() {
+    return json(svatkyService.tomorrow());
+  }
+
+  private ModelAndView html(LocalDate date, String textDay) {
+    String svatek = svatkyService.spojit(svatkyService.jmeniny(date));
+    return new ModelAndView("index")
+            .addObject("den", textDay)
+            .addObject("svatek", svatek);
+
+  }
+
+  private List<String> json(LocalDate date) {
+    return svatkyService.jmeniny(date);
+
   }
 }
