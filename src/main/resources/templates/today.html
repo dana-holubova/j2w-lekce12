@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Svátky</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            min-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            font-size: 32pt;
+        }
+    </style>
+</head>
+<body>
+<main>Dnes má svátek: <strong th:text="${svatek}"></strong></main>
+</body>
+</html>
