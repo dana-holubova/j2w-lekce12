@@ -34,6 +34,9 @@ public class SvatkyController {
     return html(svatkyService.today(), "Dnes");
   }
 
+  /**
+   * Pomocí parametru produces říkám, co chci od serveru. V tomto případě jsou to data ve formátu JSON.
+   */
   @GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   public List<String> todayJson() {

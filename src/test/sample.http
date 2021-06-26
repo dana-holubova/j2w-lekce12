@@ -1,0 +1,8 @@
+#požadavek, který vrací html stránku
+###
+GET https://dana-holubova-j2w-lekce-12.herokuapp.com/
+
+#požadavek který vrací formát JSON
+###
+GET https://dana-holubova-j2w-lekce-12.herokuapp.com/
+Accept: application/json
