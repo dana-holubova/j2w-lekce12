@@ -1,9 +1,9 @@
 spring:
   application:
     name: lekce12
-  datasource:
-    url: jdbc:h2:mem:svatky;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;COLLATION=CZECH
-    username: sa
-    password: ''
+#  datasource:
+#    url: jdbc:h2:mem:svatky;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;COLLATION=CZECH
+#    username: sa
+#    password: ''
   flyway:
     locations: classpath:db/migration/{vendor}, classpath:db/migration/common

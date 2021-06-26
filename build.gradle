@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.5.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'distribution'
+
 }
 
 group = 'cz.czechitas.java2webapps'
@@ -22,8 +24,8 @@ dependencies {
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	runtimeOnly 'com.h2database:h2'
-//	runtimeOnly 'org.postgresql:postgresql'
+//	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.postgresql:postgresql'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
@@ -38,3 +40,7 @@ java {
 }
 
 compileJava.options.encoding = 'UTF-8'
+
+jar {
+	enabled = false
+}
